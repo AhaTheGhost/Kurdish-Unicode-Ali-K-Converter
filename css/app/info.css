@@ -15,6 +15,27 @@ html, body {
      line-height: 58px;
      margin: 0 0 25px;
  }
+
+ .donation {
+    text-align: center;
+ }
+
+ .donate-btns {
+    text-align: center;
+ }
+
+ .donate-btns form,
+ .donate-btns img.donate-burger {
+     display: inline-block;
+     vertical-align: middle;
+     margin: 0px 5px 10px 5px ;
+ }
+
+ .donate-burger {
+    width: 150px;
+    height: 31px;
+    cursor: pointer;
+ }
  
  p {
      color: #adb7bd;
