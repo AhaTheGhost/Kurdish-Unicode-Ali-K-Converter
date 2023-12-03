@@ -1,0 +1,136 @@
+/* main styles */
+@font-face {
+	font-family: Unikurd-Jino;
+	src: url('../fonts/KJino.ttf');
+}
+
+@font-face {
+	font-family: Ali-Rebaz47;
+	src: url('../fonts/AliR47.ttf');
+}
+
+* { font-family: 'Segoe UI'; }
+
+.center {
+	display: block;
+	text-align: center;
+}
+
+.ta-container {
+	position: relative;
+	height: 100%;
+}
+
+.unicodeStyle { font-family: Unikurd-Jino; }
+
+.aliStyle {
+	font-family: Ali-Rebaz47;
+	font-weight: 600;
+}
+
+/* Themes styles */
+.lightBody {
+	background-color: #8EC5FC;
+	background-image: linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%);
+}
+
+.lightText { color: #121212; }
+.lightTa {
+	background-color:#ffffff;
+	color: black ;
+}
+
+.darkBody {
+	background-color: #303030;
+	background-image: linear-gradient(62deg, #343434 0%, #242424 100%);
+}
+
+.darkText { color: #f7f7f7; }
+.darkTa {
+	background-color:#363636;
+	color: #f7f7f7 ;
+}
+/* Themes styles */
+
+/*  Dark Theme checkbox slider  */
+:root {
+  --light: #d8dbe0;
+  --dark: #28292c;
+  --link: rgb(27, 129, 112);
+  --link-hover: rgb(24, 94, 82);
+}
+
+input {
+  position: absolute;
+  display: none;
+}
+
+.slider {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50px;
+  transition: 0.3s;
+}
+
+input:checked ~ .slider {
+  background-color: var(--light);
+}
+
+.slider::before {
+  content: "";
+  position: absolute;
+  top: 4px;
+  left: 5px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  box-shadow: inset 6px -1.5px 0px 0px var(--light);
+  background-color: var(--dark);
+  transition: 0.3s;
+}
+
+input:checked ~ .slider::before {
+  transform: translateX(30px);
+  background-color: var(--dark);
+  box-shadow: none;
+}
+/*  Dark Theme checkbox slider  */
+
+
+/* Drag drop */
+textarea[drop-active=true] {
+	border: 3px dashed #f71165;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+}
+
+textarea[drop-active=true] + img {
+	display: block;
+}
+/* Drag drop */
+
+/* Loading overlay */
+.loading-overlay {
+  position: fixed; /* Sit on top of the page content */
+  display: none; /* Hidden by default */
+  width: 100%; /* Full width (cover the whole page) */
+  height: 100%; /* Full height (cover the whole page) */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.5); /* Black background with opacity */
+  z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+  cursor: pointer; /* Add a pointer on hover */
+}
+
+.loading-gif{
+  position: absolute;
+  width: 250px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  -ms-transform: translate(-50%,-50%);
+}
+/* Loading overlay */

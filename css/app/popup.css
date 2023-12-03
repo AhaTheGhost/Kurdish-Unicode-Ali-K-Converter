@@ -1,0 +1,78 @@
+body {
+	width: 400px;
+	height: auto;
+}
+
+.title {
+    font-weight: 500;
+    font-size: 1em;
+}
+
+textarea {
+	resize: none;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	border-width: thin;
+	text-align: right;
+	font-size: 1.5em;
+	width: calc(100% - 5px);
+}
+
+.ver {
+    font-size: .85em;
+	margin-top: 5px;
+}
+
+#logo, #newTab {
+	position: absolute;
+	width:38px;
+	height:38px;
+	bottom: 5px;
+	left: 8px;
+}
+
+#newTab {
+	right: 8px !important;
+	cursor: pointer;
+}
+
+/*  Dark Theme checkbox slider  */
+.toggle-switch {
+  width: 55px;
+  padding: 0px 345px 10px 0px;
+}
+
+label {
+  position: absolute;
+  width: 55px;
+  height: 25px;
+  background-color: var(--dark);
+  border-radius: 50px;
+  cursor: pointer;
+  margin-top: -3px;
+}
+/*  Dark Theme checkbox slider  */
+
+/* Drag drop */
+.file-hover {
+	position: absolute;
+	left: 0px;
+	bottom: 2px;
+	width: 40px;
+	display: none;
+}
+/* Drag drop */
+
+/* info image */
+#info {
+	position: absolute;
+	width:26px;
+	top: 4px;
+	right: 8px;
+	cursor: pointer;
+}
+/* info image */

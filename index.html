@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ar">
+
+  <head>
+    <link rel="stylesheet" type="text/css" href="css/app/common.css" />
+    <link rel="stylesheet" type="text/css" href="css/app/index.css" />
+    <link rel="stylesheet" type="text/css" href="css/lib/toastify.css">
+    <meta charset="UTF-8">
+    <title>Kurdish Unicode - Ali K Converter</title>
+  </head>
+
+  <body class="lightBody">
+
+      <div class="loading-overlay">
+          <img class="loading-gif" src="images/loading.gif" alt="this slowpoke moves"  width="250" />
+      </div>
+
+      <div class="toggle-switch">
+        <label>
+            <input id="ts" type="checkbox">
+            <span id="slider" class="slider"></span>
+        </label>
+      </div>
+
+      <img id="info" src="images/info.png" alt="info">
+
+    <main>
+
+      <img src="images/color-changer128.png" alt="Logo">
+
+      <div class="main-container">
+
+        <div class="container">
+
+          <div class="title lightText center">Unicode</div>
+          <div class="ta-container">
+              <textarea id="unicodeTA" drop-active="" dir="rtl" rows="8" class="unicodeStyle lightTa"></textarea>
+              <img class="file-hover" src="images/file-upload.png" alt="file-hover">
+          </div>
+
+          <br />
+
+          <div class="title lightText center">Ali K</div>
+          <div class="ta-container">
+              <textarea id="alikTA" drop-active="" dir="rtl" rows="8" class="aliStyle lightTa"></textarea>
+              <img class="file-hover" src="images/file-upload.png" alt="file-hover">
+          </div>
+
+        </div>
+
+      </div>
+
+    </main>
+
+    <footer>
+
+      <span class="ver lightText center">Developed with 💖 by <strong><a href="mailto:ahmad360pro@gmail.com">Ahmed F. Shark</a></strong></span>
+      <span class="ver lightText center">Kurdish Unicode - Ali K Converter | <u>v2.3.2</u></span>
+
+    </footer>
+
+    <script async src="js/lib/docToText.js"></script>
+    <script src="js/app/script.js"></script>
+    <script async src="js/lib/toastify.js"></script>
+
+  </body>
+
+</html>

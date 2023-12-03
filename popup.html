@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+  
+<head>
+    <link rel="stylesheet" type="text/css" href="css/app/common.css" />
+    <link rel="stylesheet" type="text/css" href="css/app/popup.css" />
+    <link rel="stylesheet" type="text/css" href="css/lib/toastify.css">
+    <meta charset="UTF-8">
+</head>
+
+<body class="lightBody">
+    <div class="loading-overlay">
+        <img class="loading-gif" src="images/loading.gif" alt="Loading" width="250">
+    </div>
+
+    <div class="toggle-switch" title="Toggle theme (Ctrl + Shift + L)">
+        <label>
+            <input id="ts" type="checkbox">
+            <span id="slider" class="slider"></span>
+        </label>
+    </div>
+
+    <img id="info" src="images/info.png" alt="Info">
+
+    <div class="title lightText center">Unicode</div>
+    <div class="ta-container">
+        <textarea id="unicodeTA" drop-active="" rows="3" class="unicodeStyle lightTa"></textarea>
+        <img class="file-hover" src="images/file-upload.png" alt="File Hover">
+    </div>
+    <br />
+
+    <div class="title lightText center">Ali K</div>
+    <div class="ta-container">
+        <textarea id="alikTA" drop-active="" rows="3" class="aliStyle lightTa"></textarea>
+        <img class="file-hover" src="images/file-upload.png" alt="File Hover">
+    </div>
+    <hr />
+
+    <span class="ver lightText center">Developed with 💖 by <strong>Ahmed F. Shark</strong></span>
+    <span class="ver lightText center">Kurdish Unicode - Ali K Converter | <u>v2.3.2</u></span>
+
+    <img id="logo" src="images/color-changer128.png" alt="Logo">
+
+    <img id="newTab" src="images/expand.png" alt="Open in New Tab" title="Open in new tab (Ctrl + Shift + O)">
+
+    <script async src="js/lib/docToText.js"></script>
+    <script src="js/app/script.js"></script>
+    <script async src="js/lib/toastify.js"></script>
+
+</body>
+</html>
