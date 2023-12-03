@@ -213,3 +213,6 @@ function replaceTheme(text, ta, currentC, newC) {
 //  Loading overlay
 const loading = document.getElementsByClassName("loading-overlay")[0].style;
 function loadingOverlay(isOn) { isOn ? loading.display = "block" : loading.display = "none"; }
+
+// set manifest version
+document.getElementById("version").innerText = "v" + chrome.runtime.getManifest().version;
