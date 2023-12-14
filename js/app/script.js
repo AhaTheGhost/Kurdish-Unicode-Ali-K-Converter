@@ -81,19 +81,16 @@ function convertTo(targert) {
 });
 
 function copyText(textarea) {
-
   textarea.select();
   textarea.setSelectionRange(0, 99999);
   navigator.clipboard.writeText(textarea.value);
   Toastify({ text: "Copied", duration: 1500 }).showToast();
-
 }
 
 /* Open in new tab */
 const newTab = document.getElementById("newTab");
 if(newTab)
   newTab.addEventListener("click", ()=> { chrome.tabs.create({url: 'index.html'}); });
-/* Open in new tab */
 
 // Open information page in new tab
 const newTabInfo = document.getElementById("info");
@@ -214,5 +211,5 @@ function replaceTheme(text, ta, currentC, newC) {
 const loading = document.getElementsByClassName("loading-overlay")[0].style;
 function loadingOverlay(isOn) { isOn ? loading.display = "block" : loading.display = "none"; }
 
-// set manifest version
+// set to manifest version
 document.getElementById("version").innerText = "v" + chrome.runtime.getManifest().version;
