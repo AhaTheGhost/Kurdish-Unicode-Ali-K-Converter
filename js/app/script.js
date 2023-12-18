@@ -152,7 +152,7 @@ async function handleFile(file, el) {
     const ext = file.name.split(".")[1];
 
     // Check file size and type
-    if (file.size / 1024 / 1024 > 50) {
+    if (file.size / 1024 / 1024 > 500) {
         Toastify({ text: "File cannot be larger than 50MB", duration: 2000, backgroundColor: 'crimson' }).showToast();
     } else if (ext == "txt") {
         // Read and display text for TXT files
