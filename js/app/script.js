@@ -120,11 +120,11 @@ if(newTabInfo)
 
     el.addEventListener("drop", async (ev) => {
       ev.preventDefault();
-      loadingOverlay(1);
+      showLoadingOverlay();
 
       if(ev.dataTransfer.items.length > 1){
           Toastify({ text: "Can not read more than 1 file at a time", duration: 2000, backgroundColor: 'crimson' }).showToast();
-          loadingOverlay(0);
+          hideLoadingOverlay();
         } else {
             try {
                 const file = ev.dataTransfer.items[0];
