@@ -107,86 +107,92 @@ const newTabInfo = document.getElementById("info");
 if(newTabInfo)
     newTabInfo.addEventListener("click", ()=> { chrome.tabs.create({url: 'info.html'}); });
 
-// Drag drop reader
-const exts = ['doc', 'docx', 'xls', 'xlsx', 'ppt', 'pptx', 'pdf'];
-
-[unicodeTA, alikTA].forEach((el) => {
-
+// Drag and drop file reader setup
+[unicodeTA, alikTA].forEach(async (el) => {
     el.addEventListener("dragover", (event) => {
         el.setAttribute("drop-active", "true");
         event.preventDefault();
     });
 
-    el.addEventListener("dragleave", (event) => {
+    el.addEventListener("dragleave", () => {
         el.setAttribute("drop-active", "false");
     });
 
-    el.addEventListener("drop", (ev) => {
+    el.addEventListener("drop", async (ev) => {
       ev.preventDefault();
-
       loadingOverlay(1);
 
       if(ev.dataTransfer.items.length > 1){
-          Toastify({ text: "Can not read more than 1 file", duration: 2000, backgroundColor: 'crimson' }).showToast();
+          Toastify({ text: "Can not read more than 1 file at a time", duration: 2000, backgroundColor: 'crimson' }).showToast();
           loadingOverlay(0);
         } else {
-          let file = ev.dataTransfer.items[0];
-
-          if (file && file.kind === 'file') {
-
-              file = file.getAsFile();
-              ext = file.name.split(".")[1];
-
-              if(file.size / 1024 / 1024 > 50){
-
-                  Toastify({ text: "File cannot be larger than 50MB", duration: 2000, backgroundColor: 'crimson' }).showToast();
-                  loadingOverlay(0);
-
-              } else if(ext == "txt"){
-
-                  const reader = new FileReader();
-                  reader.onload = (read) => {
-										el.value = read.target.result;
-										el.dispatchEvent(inpEve);
-                  };
-                  reader.readAsText(file);
-                  loadingOverlay(0);
-
-              } else if(exts.includes(ext)){
-
-                const docToText = new DocToText();
-                  
-                  docToText.extractToText(file, ext).then(function (text) {
-                    const extractedText = text.split(/\r?\n/);
-                    let fixedText = [];
-
-                    for(i = 0; i < extractedText.length; i++){
-                      if(extractedText[i] != ","){ fixedText.push(extractedText[i].replace(/,/g, "")); } 
-                    }
-                    
-										el.value = fixedText.join('\r\n');
-                    el.dispatchEvent(inpEve);
-                    loadingOverlay(0);
-                  }).catch(function (error) {
-										Toastify({ text: "Error reading file!", duration: 2000, backgroundColor: 'crimson' }).showToast();
-										console.log("Something went wrong! if this issue persists and you see this, then kindly report it to the developer.", error);
-                    loadingOverlay(0);
-                  });
-
-              } else {
-                  Toastify({ text: "'." + ext + "' filetype cannot be converted", duration: 2000, backgroundColor: 'crimson' }).showToast();
-                  loadingOverlay(0);
-              }
-
-          }
-
-      }
+            try {
+                const file = ev.dataTransfer.items[0];
+                if (file && file.kind === 'file')
+                    await handleFile(file, el);
+            } catch (error) {
+                Toastify({ text: "Error handling file!", duration: 2000, backgroundColor: 'crimson' }).showToast();
+                console.log("Something went wrong! if this issue persists and you see this, then kindly report it to the developer.", error);
+            }
+        }      
 
       el.setAttribute("drop-active", "false");
-
+      hideLoadingOverlay();
     });
 
 });
+
+// Handle file function
+async function handleFile(file, el) {
+    // Convert DataTransferItem to File
+    file = file.getAsFile();
+    
+    // Supported file extensions
+    const exts = ['doc', 'docx', 'xls', 'xlsx', 'ppt', 'pptx', 'pdf'];
+    const ext = file.name.split(".")[1];
+
+    // Check file size and type
+    if (file.size / 1024 / 1024 > 50) {
+        Toastify({ text: "File cannot be larger than 50MB", duration: 2000, backgroundColor: 'crimson' }).showToast();
+    } else if (ext == "txt") {
+        // Read and display text for TXT files
+        const text = await readTxtFile(file);
+        el.value = text;
+        el.dispatchEvent(inpEve);
+    } else if (exts.includes(ext)) {
+        // Extract and display text for supported file types
+        const extractedText = await extractTextFromFile(file, ext);
+        el.value = extractedText.join('\r\n');
+        el.dispatchEvent(inpEve);
+    } else {
+        Toastify({ text: "'." + ext + "' filetype cannot be converted", duration: 2000, backgroundColor: 'crimson' }).showToast();
+    }
+}
+
+// Read TXT file function
+function readTxtFile(file) {
+    return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload = (read) => resolve(read.target.result);
+        reader.onerror = reject;
+        reader.readAsText(file);
+    });
+}
+
+// Extract text from file function
+function extractTextFromFile(file, ext) {
+    return new Promise((resolve, reject) => {
+        const docToText = new DocToText();
+        docToText.extractToText(file, ext).then((text) => {
+                // Split and filter extracted text
+                const extractedText = text.split(/\r?\n/);
+                let fixedText = [];
+                for(i = 0; i < extractedText.length; i++)
+                    if(extractedText[i] != ","){ fixedText.push(extractedText[i].replace(/,/g, "")); } 
+                resolve(fixedText);
+         }).catch(reject);
+    });
+}
 
 // Theme replacement
 const themeSwitch = document.getElementById('ts');
