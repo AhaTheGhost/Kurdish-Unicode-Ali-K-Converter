@@ -128,7 +128,8 @@ const exts = ['doc', 'docx', 'xls', 'xlsx', 'ppt', 'pptx', 'pdf'];
 
       if(ev.dataTransfer.items.length > 1){
           Toastify({ text: "Can not read more than 1 file", duration: 2000, backgroundColor: 'crimson' }).showToast();
-      } else {
+          loadingOverlay(0);
+        } else {
           let file = ev.dataTransfer.items[0];
 
           if (file && file.kind === 'file') {
