@@ -152,7 +152,7 @@ async function handleFile(file, el) {
     
     // Supported file extensions
     const exts = ['doc', 'docx', 'xls', 'xlsx', 'ppt', 'pptx', 'pdf'];
-    const ext = file.name.split(".")[1];
+    const ext = file.name.split(".")[file.name.split(".").length - 1];
 
     // Check file size and type
     if (file.size / 1024 / 1024 > 500) {
