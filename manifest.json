@@ -6,7 +6,7 @@
   "name": "Kurdish Unicode - Ali K Converter",
   "author": "Ahmed F. Shark",
   "description": "Convert between Kurdish Unicode and Ali-K, with features such as light/dark modes, drag-and-drop, and quick triple-click copying.",
-  "version": "3.0.0",
+  "version": "3.1.0",
   "icons": {
     "25": "images/icon25.png",
     "48": "images/icon48.png"
