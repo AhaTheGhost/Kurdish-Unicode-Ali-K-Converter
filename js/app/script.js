@@ -1,9 +1,12 @@
-// Load default theme on window load
-window.addEventListener('load', function () {
-    // Check if a theme preference is stored in localStorage
-    if(localStorage.getItem('AktoUTheme') == "Dark")
-        document.getElementById('slider').click();
-});
+const toggleSwitch = document.getElementById('slider'); 
+
+// Immediately-invoked function
+(function() {
+    if(localStorage.getItem('AktoUTheme') == "Dark"){
+        toggleSwitch.checked = true;
+        document.documentElement.setAttribute('theme', 'dark'); 
+    }
+})();
 
 // Toggle light/dark mode and open in new tab shortcuts
 document.addEventListener('keydown', function(event) {
@@ -194,38 +197,17 @@ function extractTextFromFile(file, ext) {
     });
 }
 
-// Theme replacement
-const themeSwitch = document.getElementById('ts');
-let text, ta;
-
-// Event listener for theme switch change
-themeSwitch.addEventListener('change', (e) => {
-    // If checked, switch to dark theme else to light theme
-    if (themeSwitch.checked) {
-        text = document.getElementsByClassName("lightText");
-        ta = document.getElementsByClassName("lightTa");
-        replaceTheme(text, ta, "light", "dark");
-        document.body.className = "darkBody";
-
-        // Save theme preference to local storage
+// Function to switch theme  
+toggleSwitch.addEventListener('change', (e) => {
+    // if slider is checked default theme changes to dark
+    if (e.target.checked) {
+        document.documentElement.setAttribute('theme', 'dark');
         localStorage.setItem('AktoUTheme', 'Dark');
     } else {
-        text = document.getElementsByClassName("darkText");
-        ta = document.getElementsByClassName("darkTa");
-        replaceTheme(text, ta, "dark", "light");
-        document.body.className = "lightBody";
-
-        localStorage.setItem('AktoUTheme', 'Light');
+        document.documentElement.setAttribute('theme', 'light');
+        localStorage.setItem('AktoUTheme', 'light');
     }
 });
-
-function replaceTheme(text, ta, currentC, newC) {
-    for(let i = text.length - 1; i >= 0; i--)
-        text[i].classList.replace(currentC + "Text", newC + "Text");
-
-    for(let i = ta.length - 1; i >= 0; i--)
-        ta[i].classList.replace(currentC + "Ta", newC + "Ta");
-}
 
 // Loading overlay
 const loading = document.getElementsByClassName("loading-overlay")[0].style;

@@ -1,16 +1,17 @@
-html, body {
+html,
+body {
 	margin: 0;
 	height: 100%;
 	min-height: 100%;
 }
 
 body {
-  display: flex;
-  flex-direction: column;
+	display: flex;
+	flex-direction: column;
 }
 
 footer {
-  	flex: none;
+	flex: none;
 	padding: 10px;
 }
 
@@ -21,12 +22,14 @@ main {
 }
 
 .title {
-    font-weight: 500;
-    font-size: 1.5em;
+	font-weight: 500;
+	font-size: 1.5em;
 	padding: 5px
 }
 
-.main-container { height: 25vh; }
+.main-container {
+	height: 25vh;
+}
 
 .container {
 	padding: 0px 25px 0px 25px;
@@ -53,37 +56,41 @@ textarea {
 }
 
 a {
-    color: inherit;
+	color: inherit;
 }
 
 .ver {
-    font-size: 1em;
+	font-size: 1em;
 	margin-top: 5px;
 }
 
 img {
 	display: block;
- 	margin-left: auto;
-  	margin-right: auto;
+	margin-left: auto;
+	margin-right: auto;
 	padding: 25px
 }
 
-/*  Dark Theme checkbox slider  */
-.toggle-switch {
-  width: 55px;
+/* Slider style */
+.theme-slider {
+	height: 34px;
+	width: 60px;
+	left: 25px;
+	top: 25px;
 }
 
-label {
-  position: absolute;
-  width: 55px;
-  height: 25px;
-  background-color: var(--dark);
-  border-radius: 50px;
-  cursor: pointer;
-  margin-top: 25px;
-  margin-left: 25px;
+.slider:before {
+	height: 26px;
+	width: 26px;
 }
-/*  Dark Theme checkbox slider  */
+
+input:checked+.slider:before {
+	transform: translateX(26px);
+}
+
+.slider.round {
+	border-radius: 34px;
+}
 
 /* Drag drop */
 .file-hover {
@@ -93,14 +100,10 @@ label {
 	width: 80px;
 	display: none;
 }
-/* Drag drop */
 
 /* info image */
 #info {
-	position: absolute;
 	right: 0px;
 	top: 5px;
 	width: 60px;
-	cursor: pointer;
 }
-/* info image */
