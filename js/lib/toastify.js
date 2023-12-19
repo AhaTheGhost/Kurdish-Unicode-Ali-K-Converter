@@ -66,6 +66,8 @@
 
       divElement.className += " " + "toastify-top"; // Default gravity
 
+      divElement.dir = "ltr";
+
       for (var property in this.options.style) {
         divElement.style[property] = this.options.style[property];
       }
@@ -106,14 +108,17 @@
 
     removeElement: function(toastElement) {
       toastElement.className = toastElement.className.replace(" on", "");
-
+    
       window.setTimeout(
         function() {
           if (toastElement.parentNode) {
             toastElement.parentNode.removeChild(toastElement);
           }
-
-          this.options.callback.call(toastElement);
+    
+          if (this.options.callback && typeof this.options.callback === 'function') {
+            this.options.callback.call(toastElement);
+          }
+    
           Toastify.reposition();
         }.bind(this),
         400
