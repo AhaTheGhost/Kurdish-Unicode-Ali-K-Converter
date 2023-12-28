@@ -11,7 +11,15 @@ Convert seamlessly between Kurdish Unicode and Ali-K with this feature-rich exte
 
 ## 🆕 What's New
 
-### Version 3.0.0 (Latest)
+
+### Version 3.1.0 (Latest)
+
+- **Sleek Transitions:** Loading animation gracefully disappears after dropping multiple files.
+- **500MB File Size:** Increased file size limit.
+- **Bug Squashing:** Numerous minor patches to refine performance.
+
+
+### Version 3.0.0
 
 - **License Revamp:** Transitioned to the MIT License for enhanced flexibility.
 - **Updated Icons:** Refreshed extension icons for a modern look.
