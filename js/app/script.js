@@ -164,8 +164,7 @@ async function handleFile(file, el) {
         el.dispatchEvent(inpEve);
     } else if (exts.includes(ext)) {
         // Extract and display text for supported file types
-        const extractedText = await extractTextFromFile(file, ext);
-        el.value = extractedText.join('\r\n');
+        el.value = await extractTextFromFile(file, ext);
         el.dispatchEvent(inpEve);
     } else {
         Toastify({ text: "'." + ext + "' filetype cannot be converted", duration: 2000, backgroundColor: 'crimson' }).showToast();
@@ -186,17 +185,26 @@ function readTxtFile(file) {
 function extractTextFromFile(file, ext) {
     return new Promise((resolve, reject) => {
         const docToText = new DocToText();
-        docToText.extractToText(file, ext).then((text) => {
-                // Split and filter extracted text
-                const extractedText = text.split(/\r?\n/);
-                let fixedText = [];
-                for(i = 0; i < extractedText.length; i++)
-                    if(extractedText[i] != ","){ fixedText.push(extractedText[i].replace(/,/g, "")); } 
-                resolve(fixedText);
+        docToText.extractToText(file, ext).then((text) => {  
+            resolve(processExtractedText(text));
          }).catch(reject);
     });
 }
 
+// Function to filter the extracted text by removing the extra commas and leading
+// newlines after using the docToText library
+function processExtractedText(text){
+    const extractedText = text
+    .replace(/^\n+/, '').trim()     // Remove first newlines if exists
+    .split(/\n/);                   // Split to filter commas
+    let commaFreeText = [];
+    for(i = 0; i < extractedText.length; i++)
+        if(extractedText[i] != ","){ commaFreeText.push(extractedText[i].replace(/,/g, "")); }           
+    
+    return commaFreeText.join('\n') // Join filtered
+    .replace(/(.)\n\n/g, '$1\n');   // Remove extra newlines
+}
+  
 // Function to switch theme  
 toggleSwitch.addEventListener('change', (e) => {
     // if slider is checked default theme changes to dark
