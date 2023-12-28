@@ -11,30 +11,21 @@ Convert seamlessly between Kurdish Unicode and Ali-K with this feature-rich exte
 
 ## 🆕 What's New
 
+### Version 3.2.0 (Latest)
 
-### Version 3.1.0 (Latest)
+- **Some Sprinkles:** Removed extra new lines from dropped files other than ".txt".
+
+### Version 3.1.0
 
 - **Sleek Transitions:** Loading animation gracefully disappears after dropping multiple files.
 - **500MB File Size:** Increased file size limit.
 - **Bug Squashing:** Numerous minor patches to refine performance.
-
 
 ### Version 3.0.0
 
 - **License Revamp:** Transitioned to the MIT License for enhanced flexibility.
 - **Updated Icons:** Refreshed extension icons for a modern look.
 - **Bug Squashing:** Fixed minor bugs and enhanced overall performance.
-
-### Version 2.3.1
-
-- **Shortcut Bliss:** Added shortcuts (Ctrl + Shift + L) for mode toggling and (Ctrl + Shift + O) for opening in a new tab.
-- **Bug Fixes:** Addressed minor bugs and optimized code for smoother operation.
-
-### Version 2.3.0
-
-- **File Support:** Now auto-converts ".ppt," ".pptx," ".xls," and ".xlsx" files.
-- **Code Security:** Improved security with code enhancements.
-- **Offline Mode:** Fully functional offline mode for on-the-go convenience.
 
 ...and many more cool updates in the previous versions!
 
