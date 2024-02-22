@@ -11,7 +11,12 @@ Convert seamlessly between Kurdish Unicode and Ali-K with this feature-rich exte
 
 ## 🆕 What's New
 
-### Version 3.2.0 (Latest)
+### Version 3.3.0 (Latest)
+
+- **Bug Fix:** Resolved freezing issue when adding empty files.
+- **Removed PayPal Donation:** No longer supported in current region.
+
+### Version 3.2.0
 
 - **Some Sprinkles:** Removed extra new lines from dropped files other than ".txt".
 
@@ -31,13 +36,11 @@ Convert seamlessly between Kurdish Unicode and Ali-K with this feature-rich exte
 
 ## 💖 Support and Donation
 
-If you find this extension useful and want to support its development, consider buying me a burger or making a donation via PayPal.
+If you find this extension useful and want to support its development, consider buying me a burger.
 
 <a href="https://www.buymeacoffee.com/ahatheghost" target="_blank">
   <img src="images/buy-me-burger.png" alt="Buy Me a Burger" width="150" />
 </a>
-
-[![Donate with PayPal](https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif)](https://www.paypal.com/donate?hosted_button_id=KDDELHAYYN8LL)
 
 ## 📚 License
 
