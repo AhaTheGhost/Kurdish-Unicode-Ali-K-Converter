@@ -2579,7 +2579,10 @@
                         this.checkIndex(this.index + e)
                     },
                     checkIndex: function (e) {
-                        if (this.length < this.zero + e || e < 0) throw new Error("End of data reached (data length = " + this.length + ", asked index = " + e + "). Corrupted zip ?")
+                        if (this.length < this.zero + e || e < 0){
+                            alert("file seems to be empty, kindly drop a file that is not empty");
+                            window.location.reload(true);
+                        }
                     },
                     setIndex: function (e) {
                         this.checkIndex(e), this.index = e
