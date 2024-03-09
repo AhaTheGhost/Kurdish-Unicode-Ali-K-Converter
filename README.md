@@ -44,7 +44,7 @@ If you find this extension useful and want to support its development, consider 
 
 ## 📚 License
 
-This extension is licensed under the [MIT License](https://opensource.org/license/mit/). Copyright © 2022-2023 Ahmed F. Shark.
+This extension is licensed under the [MIT License](https://opensource.org/license/mit/). Copyright © 2022-2024 Ahmed F. Shark.
 
 ## 🌟 Get It Now
 
